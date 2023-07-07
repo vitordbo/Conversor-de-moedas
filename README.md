@@ -1,6 +1,10 @@
 # conversor_moedas
 
-A new Flutter project.
+![image](https://github.com/vitordbo/Conversor-de-moedas/assets/65680799/ca2150f7-d93e-4772-9a67-20fa720a689b)
+
+![image](https://github.com/vitordbo/Conversor-de-moedas/assets/65680799/6a20d0ec-b035-4085-90fa-cb9a073ec8b6)
+
+A new Flutter project from this course (https://youtube.com/playlist?list=PLlBnICoI-g-d-J57QIz6Tx5xtUDGQdBFB)
 
 ## Getting Started
 
