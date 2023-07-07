@@ -1,4 +1,4 @@
-# conversor_moedas
+# Currency Converter
 
 ![image](https://github.com/vitordbo/Conversor-de-moedas/assets/65680799/ca2150f7-d93e-4772-9a67-20fa720a689b)
 
