@@ -22,6 +22,50 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: Image.network(
+                      'https://avatars.githubusercontent.com/u/65680799?v=4',
+                      height: 10,
+                      width: 10,
+                    )),
+                accountName: Text('Vitor Duarte'),
+                accountEmail: Text('Vitor@email.com')),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Conversor'),
+              subtitle: Text('Conversor de Moedas'),
+              onTap: () {
+                print('home');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.calculate),
+              title: Text('Calculadora'),
+              subtitle: Text('Calculadora'),
+              onTap: () {
+                print('home');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Sair'),
+              subtitle: Text('Sair do aplicativo'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            )
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        title: Text('Conversor de Moedas'),
+        actions: [],
+      ),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
