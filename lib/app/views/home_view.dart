@@ -1,5 +1,5 @@
-import 'package:conversor_moedas/app/components/currency_box.dart';
-import 'package:conversor_moedas/app/controllers/home_controller.dart';
+import 'package:conversor_de_moedas/app/components/currency_box.dart';
+import 'package:conversor_de_moedas/app/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -22,10 +22,12 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       drawer: Drawer(
         child: Column(
           children: [
             UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.blue),
                 currentAccountPicture: ClipRRect(
                     borderRadius: BorderRadius.circular(40),
                     child: Image.network(
@@ -74,7 +76,7 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             children: [
               Image.asset(
-                'assets/logo.png',
+                'assets/images/logo.png',
                 width: 150,
                 height: 150,
               ),

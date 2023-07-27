@@ -1,4 +1,4 @@
-import 'package:conversor_moedas/app/models/currency_model.dart';
+import 'package:conversor_de_moedas/app/models/currency_model.dart';
 import 'package:flutter/material.dart';
 
 class HomeController {
