@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:conversor_de_moedas/app/components/currency_box.dart';
 import 'package:conversor_de_moedas/app/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +29,7 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
+                decoration: BoxDecoration(color: Colors.amber.withOpacity(0.5)),
                 currentAccountPicture: ClipRRect(
                     borderRadius: BorderRadius.circular(40),
                     child: Image.network(
@@ -46,19 +48,11 @@ class _HomeViewState extends State<HomeView> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.calculate),
-              title: Text('Calculadora'),
-              subtitle: Text('Calculadora'),
-              onTap: () {
-                print('home');
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.logout),
               title: Text('Sair'),
               subtitle: Text('Sair do aplicativo'),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed('/');
+                exit(0);
               },
             )
           ],
@@ -72,7 +66,8 @@ class _HomeViewState extends State<HomeView> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Padding(
-          padding: EdgeInsets.only(left: 30, right: 30, top: 100, bottom: 20),
+          padding:
+              const EdgeInsets.only(left: 30, right: 30, top: 100, bottom: 20),
           child: Column(
             children: [
               Image.asset(
@@ -80,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
                 width: 150,
                 height: 150,
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               CurrencyBox(
                 selectedItem: homeController.toCurrency,
                 controller: toText,
@@ -91,7 +86,7 @@ class _HomeViewState extends State<HomeView> {
                   });
                 },
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CurrencyBox(
                 selectedItem: homeController.fromCurrency,
                 controller: fromText,
@@ -102,18 +97,61 @@ class _HomeViewState extends State<HomeView> {
                   });
                 },
               ),
-              SizedBox(height: 50),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
-                onPressed: () {
-                  homeController.convert();
-                },
-                child: Text('Converter'),
+              const SizedBox(height: 30),
+              SizedBox(
+                height: 50,
+                width: 160,
+                child: ElevatedButton(
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+                  onPressed: () {
+                    homeController.convert();
+                  },
+                  child: const Text(
+                    'Converter',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                ),
               )
             ],
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Colors.white,
+          unselectedFontSize: 16,
+          selectedFontSize: 16,
+          items: [
+            BottomNavigationBarItem(
+              icon: IconButton(
+                  iconSize: 30,
+                  color: Colors.white,
+                  onPressed: () {
+                    Container(
+                        // implementar historico num pop up?
+                        //ou em outra tela?
+                        );
+                  },
+                  icon: const Icon(Icons.history)),
+              label: 'Histórico',
+            ),
+            BottomNavigationBarItem(
+              icon: IconButton(
+                  iconSize: 26,
+                  color: Colors.white,
+                  onPressed: () {
+                    //
+                  },
+                  icon: const Icon(Icons.currency_exchange)),
+              label: 'Conversor',
+            ),
+          ]),
+      // bottom navigation bar
     );
   }
 }

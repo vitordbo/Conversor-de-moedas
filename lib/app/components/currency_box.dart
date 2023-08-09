@@ -15,6 +15,7 @@ class CurrencyBox extends StatelessWidget {
     required this.onChanged,
     required this.selectedItem,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -38,12 +39,13 @@ class CurrencyBox extends StatelessWidget {
                 onChanged: onChanged,
               ),
             )),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
           flex: 2,
           child: TextField(
+            keyboardType: const TextInputType.numberWithOptions(),
             controller: controller,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.amber),
               ),
