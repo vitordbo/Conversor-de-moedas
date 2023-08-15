@@ -1,3 +1,4 @@
+import 'package:conversor_de_moedas/app/models/conversion_history_item.dart';
 import 'package:conversor_de_moedas/app/models/currency_model.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,8 @@ class HomeController {
 
   final TextEditingController toText;
   final TextEditingController fromText;
+
+  List<ConversionHistoryItem> conversionHistory = [];
 
   HomeController(this.toText, this.fromText) {
     currencies = CurrencyModel.getCurrencies();
@@ -30,6 +33,13 @@ class HomeController {
     } else if (fromCurrency.name == 'Bitcoin') {
       returnValue = value * toCurrency.bitcoin;
     }
+
+    conversionHistory.add(ConversionHistoryItem(
+      fromCurrency: fromCurrency.name,
+      toCurrency: toCurrency.name,
+      amount: value,
+      convertedAmount: returnValue,
+    ));
 
     fromText.text = returnValue.toStringAsFixed(2);
   }

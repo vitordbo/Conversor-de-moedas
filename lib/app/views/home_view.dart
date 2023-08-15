@@ -2,9 +2,12 @@ import 'dart:io';
 
 import 'package:conversor_de_moedas/app/components/currency_box.dart';
 import 'package:conversor_de_moedas/app/controllers/home_controller.dart';
+import 'package:conversor_de_moedas/app/views/history_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
+  const HomeView({super.key});
+
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -40,17 +43,9 @@ class _HomeViewState extends State<HomeView> {
                 accountName: Text('Vitor Duarte'),
                 accountEmail: Text('Vitor@email.com')),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Conversor'),
-              subtitle: Text('Conversor de Moedas'),
-              onTap: () {
-                print('home');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Sair'),
-              subtitle: Text('Sair do aplicativo'),
+              leading: const Icon(Icons.logout),
+              title: const Text('Sair'),
+              subtitle: const Text('Sair do aplicativo'),
               onTap: () {
                 exit(0);
               },
@@ -129,26 +124,35 @@ class _HomeViewState extends State<HomeView> {
           items: [
             BottomNavigationBarItem(
               icon: IconButton(
-                  iconSize: 30,
-                  color: Colors.white,
-                  onPressed: () {
-                    Container(
-                        // implementar historico num pop up?
-                        //ou em outra tela?
-                        );
-                  },
-                  icon: const Icon(Icons.history)),
-              label: 'Histórico',
-            ),
-            BottomNavigationBarItem(
-              icon: IconButton(
                   iconSize: 26,
                   color: Colors.white,
                   onPressed: () {
-                    //
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
                   },
                   icon: const Icon(Icons.currency_exchange)),
               label: 'Conversor',
+            ),
+            BottomNavigationBarItem(
+              icon: IconButton(
+                  iconSize: 30,
+                  color: Colors.white,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HistoryScreen(
+                          conversionHistory: homeController.conversionHistory,
+                        ),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.history)),
+              label: 'Histórico',
             ),
           ]),
       // bottom navigation bar
