@@ -54,8 +54,25 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       appBar: AppBar(
-        title: Text('Conversor de Moedas'),
-        actions: [],
+        title: const Text('Conversor de Moedas'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HistoryScreen(
+                    conversionHistory: homeController.conversionHistory,
+                  ),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.history,
+              size: 30,
+            ), // Replace some_icon with the desired icon
+          ),
+        ],
       ),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -66,8 +83,8 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             children: [
               Image.asset(
-                'assets/images/logo.png',
-                width: 150,
+                'assets/images/moneyP.png',
+                width: 250,
                 height: 150,
               ),
               const SizedBox(height: 50),
@@ -115,47 +132,6 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.white,
-          unselectedFontSize: 16,
-          selectedFontSize: 16,
-          items: [
-            BottomNavigationBarItem(
-              icon: IconButton(
-                  iconSize: 26,
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeView(),
-                      ),
-                    );
-                  },
-                  icon: const Icon(Icons.currency_exchange)),
-              label: 'Conversor',
-            ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                  iconSize: 30,
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HistoryScreen(
-                          conversionHistory: homeController.conversionHistory,
-                        ),
-                      ),
-                    );
-                  },
-                  icon: const Icon(Icons.history)),
-              label: 'Histórico',
-            ),
-          ]),
-      // bottom navigation bar
     );
   }
 }

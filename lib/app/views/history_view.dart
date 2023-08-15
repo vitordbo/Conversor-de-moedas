@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:conversor_de_moedas/app/models/conversion_history_item.dart';
 import 'package:flutter/material.dart';
 
@@ -23,31 +21,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: Drawer(
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.amber.withOpacity(0.5)),
-                currentAccountPicture: ClipRRect(
-                    borderRadius: BorderRadius.circular(40),
-                    child: Image.network(
-                      'https://avatars.githubusercontent.com/u/65680799?v=4',
-                      height: 10,
-                      width: 10,
-                    )),
-                accountName: const Text('Vitor Duarte'),
-                accountEmail: const Text('Vitor@email.com')),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Sair'),
-              subtitle: Text('Sair do aplicativo'),
-              onTap: () {
-                exit(0);
-              },
-            )
-          ],
-        ),
-      ),
       appBar: AppBar(
         title: const Text('Histórico de conversões'),
       ),
