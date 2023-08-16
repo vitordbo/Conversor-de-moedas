@@ -34,6 +34,8 @@ class HomeController {
       returnValue = value * toCurrency.bitcoin;
     } else if (fromCurrency.name == 'Libra') {
       returnValue = value * toCurrency.libra;
+    } else if (fromCurrency.name == 'Peso Argentino') {
+      returnValue = value * toCurrency.peso;
     }
 
     conversionHistory.add(ConversionHistoryItem(
