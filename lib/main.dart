@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'app/views/home_view.dart';
 
 main() {
-  runApp(AppWidget());
+  runApp(const AppWidget());
 }
 
 class AppWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: HomeView(),
+      home: const HomeView(),
     );
   }
 }
