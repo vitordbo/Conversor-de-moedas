@@ -1,6 +1,6 @@
-# conversor_de_moedas
+# Currency Converter
 
-"A new Flutter project."
+"Simple currency converter without using any API build on Flutter"
 
 ## Getting Started
 
