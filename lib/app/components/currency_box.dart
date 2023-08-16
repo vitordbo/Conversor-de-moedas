@@ -26,12 +26,12 @@ class CurrencyBox extends StatelessWidget {
           child: SizedBox(
             height: 57,
             child: DropdownButton<CurrencyModel>(
-              iconEnabledColor: Colors.amber,
+              iconEnabledColor: Colors.white,
               isExpanded: true,
               value: selectedItem,
               underline: Container(
                 height: 1,
-                color: Colors.amber,
+                color: Colors.white,
               ),
               items: items
                   .map((e) => DropdownMenuItem(value: e, child: Text(e.name)))
@@ -48,10 +48,10 @@ class CurrencyBox extends StatelessWidget {
             controller: controller,
             decoration: const InputDecoration(
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.amber),
+                borderSide: BorderSide(color: Colors.white),
               ),
               focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.amber),
+                borderSide: BorderSide(color: Colors.white),
               ),
             ),
           ),

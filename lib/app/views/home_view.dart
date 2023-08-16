@@ -32,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.amber.withOpacity(0.5)),
+                decoration: BoxDecoration(color: Colors.blue.shade900),
                 currentAccountPicture: ClipRRect(
                     borderRadius: BorderRadius.circular(40),
                     child: Image.network(
@@ -114,8 +114,8 @@ class _HomeViewState extends State<HomeView> {
                 height: 50,
                 width: 160,
                 child: ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade900),
                   onPressed: () {
                     homeController.convert();
                   },

@@ -63,7 +63,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue.shade900),
               onPressed: () {
                 _clearHistory();
               },
